@@ -30,7 +30,7 @@ urlpatterns = [
     # api for "voting_polls" method="get" with TokenAuthentication
 
 
-
+    url(r'^clubfeed/$', views.clubfeed),
     url(r'^clubname/$', clubname.as_view()),
     url(r'^$', views.gymkhana, name='gymkhana'),
     url(r'^delete_requests/$', views.delete_requests, name='delete_requests'),

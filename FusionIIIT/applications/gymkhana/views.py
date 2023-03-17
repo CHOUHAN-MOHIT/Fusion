@@ -473,6 +473,8 @@ def new_club(request):
 	return redirect('/gymkhana/')
 
 
+def clubfeed(request):
+	return render(request , 'gymkhanaModule/clubfeeds/profile.html')
 
 @login_required()
 def form_avail(request):

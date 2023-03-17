@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+
+{% load static %}
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Static Template</title>
+  <link rel="stylesheet" href="{% static 'clubfeed/style/feedstyle.css' %}" />
+
+
+  </style>
+</head>
+
+<body>
+  <div class="content-grid">
+    <div class="column-center">
+      <div class="content-area">
+        <div class="card">
+          <div class="new-post-action">
+            <img src="{% static 'clubfeed/images/profile-320.jpg'%}" class="my-profile" />
+            <input placeholder="Share your thoughts?" />
+          </div>
+          <div class="new-post-types">
+            <div class="post-type"><i class="live-video-icon"></i> Live Video</div>
+            <div class="post-type"><i class="photo-video-icon"></i> Photo/Video</div>
+            <div class="desktop-tablet-only">
+              <div class="post-type"><i class="feeling-activity-icon"></i> Felling/Activity</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="card post">
+          <div class="post-header">
+            <div class="post-author-info">
+              <img src="{% static 'clubfeed/images/page-thumb-1.png'%}" />
+              <div>
+                <div>
+                  <span class="author-name">Bloomberg</span>
+                </div>
+                <div class="details">
+                  <span>4h</span>
+                  <span> · </span>
+                  <i class="post-settings-icon"></i>
+                </div>
+              </div>
+            </div>
+            <i class="post-menu-icon"></i>
+          </div>
+          <p class="post-body">As of Monday, only about 56% of people eligible to get the shot have stepped forward in a
+            nation with the
+            world’s second-worst Covid-19 outbreak.</p>
+          <a class="post-image">
+            <img src="{% static 'clubfeed/images/feed-image-1.jpg'%}" />
+            <div class="excerpt">
+              <div class="post-info-icon-wrap">
+                <i class="post-info-icon"></i>
+              </div>
+              <label>bloomberg.com</label>
+              <h3>India’s Unusual Vaccine Problem: Plenty of Shots, But Few Takers</h3>
+              <span>Most of the world is struggling to secure enough vaccines to inoculate their populations. India has
+                the opposite problem: Plenty of shots, but a shortage of people willing to take them.</span>
+            </div>
+          </a>
+          <div class="post-reactions">
+            <div class="reactions">
+              <div class="emojis">
+                <img src='/images/like.svg' />
+              </div>
+              <span>366</span>
+            </div>
+            <div class="comment-share">
+              <div>
+                <span>121</span>
+                <span>Comments</span>
+              </div>
+              <div class="shares">
+                <span>48</span>
+                <span>Shares</span>
+              </div>
+            </div>
+          </div>
+          <div class="post-actions">
+            <div class="actions">
+              <div class="action">
+                <i class="like-icon"></i>
+                <span>Like</span>
+              </div>
+              <div class="action">
+                <i class="comment-icon"></i>
+                <span>Comment</span>
+              </div>
+              <div class="action">
+                <i class="share-icon"></i>
+                <span>Share</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="card post">
+          <div class="post-header">
+            <div class="post-author-info">
+              <img src="{% static 'clubfeed/images/page-thumb-1.png'%}" />
+              <div>
+                <div>
+                  <span class="author-name">Bloomberg</span>
+                </div>
+                <div class="details">
+                  <span>4h</span>
+                  <span> · </span>
+                  <i class="post-settings-icon"></i>
+                </div>
+              </div>
+            </div>
+            <i class="post-menu-icon"></i>
+          </div>
+          <p class="post-body">As of Monday, only about 56% of people eligible to get the shot have stepped forward in a
+            nation with the
+            world’s second-worst Covid-19 outbreak.</p>
+          <a class="post-image">
+            <img src="{% static 'clubfeed/images/feed-image-1.jpg'%}" />
+            <div class="excerpt">
+              <div class="post-info-icon-wrap">
+                <i class="post-info-icon"></i>
+              </div>
+              <label>bloomberg.com</label>
+              <h3>India’s Unusual Vaccine Problem: Plenty of Shots, But Few Takers</h3>
+              <span>Most of the world is struggling to secure enough vaccines to inoculate their populations. India has
+                the opposite problem: Plenty of shots, but a shortage of people willing to take them.</span>
+            </div>
+          </a>
+          <div class="post-reactions">
+            <div class="reactions">
+              <div class="emojis">
+                <img src='/images/like.svg' />
+              </div>
+              <span>366</span>
+            </div>
+            <div class="comment-share">
+              <div>
+                <span>121</span>
+                <span>Comments</span>
+              </div>
+              <div class="shares">
+                <span>48</span>
+                <span>Shares</span>
+              </div>
+            </div>
+          </div>
+          <div class="post-actions">
+            <div class="actions">
+              <div class="action">
+                <i class="like-icon"></i>
+                <span>Like</span>
+              </div>
+              <div class="action">
+                <i class="comment-icon"></i>
+                <span>Comment</span>
+              </div>
+              <div class="action">
+                <i class="share-icon"></i>
+                <span>Share</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="card post">
+          <div class="post-header">
+            <div class="post-author-info">
+              <img src="{% static 'clubfeed/images/page-thumb-1.png'%}" />
+              <div>
+                <div>
+                  <span class="author-name">Bloomberg</span>
+                </div>
+                <div class="details">
+                  <span>4h</span>
+                  <span> · </span>
+                  <i class="post-settings-icon"></i>
+                </div>
+              </div>
+            </div>
+            <i class="post-menu-icon"></i>
+          </div>
+          <p class="post-body">As of Monday, only about 56% of people eligible to get the shot have stepped forward in a
+            nation with the
+            world’s second-worst Covid-19 outbreak.</p>
+          <a class="post-image">
+            <img src="{% static 'clubfeed/images/feed-image-1.jpg'%}" />
+            <div class="excerpt">
+              <div class="post-info-icon-wrap">
+                <i class="post-info-icon"></i>
+              </div>
+              <label>bloomberg.com</label>
+              <h3>India’s Unusual Vaccine Problem: Plenty of Shots, But Few Takers</h3>
+              <span>Most of the world is struggling to secure enough vaccines to inoculate their populations. India has
+                the opposite problem: Plenty of shots, but a shortage of people willing to take them.</span>
+            </div>
+          </a>
+          <div class="post-reactions">
+            <div class="reactions">
+              <div class="emojis">
+                <img src='/images/like.svg' />
+              </div>
+              <span>366</span>
+            </div>
+            <div class="comment-share">
+              <div>
+                <span>121</span>
+                <span>Comments</span>
+              </div>
+              <div class="shares">
+                <span>48</span>
+                <span>Shares</span>
+              </div>
+            </div>
+          </div>
+          <div class="post-actions">
+            <div class="actions">
+              <div class="action">
+                <i class="like-icon"></i>
+                <span>Like</span>
+              </div>
+              <div class="action">
+                <i class="comment-icon"></i>
+                <span>Comment</span>
+              </div>
+              <div class="action">
+                <i class="share-icon"></i>
+                <span>Share</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+</body>
+
+</html>

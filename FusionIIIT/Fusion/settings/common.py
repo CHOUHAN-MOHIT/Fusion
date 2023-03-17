@@ -151,6 +151,7 @@ INSTALLED_APPS = [
     'django_unused_media',
     'rest_framework',
     'rest_framework.authtoken',
+    'applications.gymkhana.clubfeeds',
 ]
 
 MIDDLEWARE = [

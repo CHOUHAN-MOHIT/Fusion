@@ -1,0 +1,24 @@
+@import url("./css/reset.css");
+@import url("./css/system-tokens.css");
+@import url("./css/common.css");
+@import url("./css/icons.css");
+@import url("./css/navigation.css");
+/* Content */
+@import url("./css/grid.css");
+@import url("./css/new-post.css");
+@import url("./css/feed.css");
+
+/* New Post Button */
+.new-post-button {
+  position: fixed;
+  right: 16px;
+  bottom: 16px;
+  width: 48px;
+  height: 48px;
+  background: var(--secondary-button-background-floating);
+  box-shadow: 0 2px 4px var(--shadow-1), 0 12px 28px var(--shadow-2);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 1000px;
+}

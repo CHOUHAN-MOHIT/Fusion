@@ -1,4 +1,5 @@
-from django.conf.urls import url
+from django.conf.urls import url , include
+from django.urls import path
 from rest_framework.urlpatterns import format_suffix_patterns
 from applications.gymkhana.api.views import Voting_Polls
 from applications.gymkhana.api.views import clubname,Club_Details,club_events,club_budgetinfo,Fest_Budget,club_report,Registraion_form
@@ -29,8 +30,6 @@ urlpatterns = [
     url(r'^voting_polls/$',Voting_Polls.as_view()),
     # api for "voting_polls" method="get" with TokenAuthentication
 
-
-    url(r'^clubfeed/$', views.clubfeed),
     url(r'^clubname/$', clubname.as_view()),
     url(r'^$', views.gymkhana, name='gymkhana'),
     url(r'^delete_requests/$', views.delete_requests, name='delete_requests'),
@@ -75,5 +74,9 @@ urlpatterns = [
     #core_team
     url(r'^core_team/$', views.core_team, name='core_team'),
     url(r'^festbudget/$', views.fest_budget, name='fest_budget'),
+
+    #clubfeed
+    # url(r'^clubfeed/$', include('applications.gymkhana.clubfeeds.urls', namespace='clubfeed')),
+    path('clubfeed/', include(('applications.gymkhana.clubfeeds.urls', 'clubfeed'), namespace='clubfeed'))
    
 ]

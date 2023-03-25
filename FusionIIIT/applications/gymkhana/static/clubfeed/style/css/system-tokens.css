@@ -709,6 +709,7 @@ __fb-dark-mode:root,
 	--card-background: #242526;
 	--card-background-flat: #323436;
 	--comment-background: #3A3B3C;
+	--submit-background: #009fff;
 	--comment-footer-background: #4E4F50;
 	--dataviz-primary-1: rgb(48, 200, 180);
 	--disabled-button-background: rgba(255, 255, 255, 0.2);

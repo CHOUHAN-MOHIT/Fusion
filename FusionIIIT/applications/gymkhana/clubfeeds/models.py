@@ -11,7 +11,7 @@ class Post(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     club = models.ForeignKey(Club_info , on_delete=models.CASCADE)
     filetype = models.CharField(max_length=32 , choices=fileTypeOption)
-    file = models.FileField(upload_to="FusionIIIT\media\clubfeeds")
+    file = models.FileField(upload_to="clubfeeds/")
     description = models.TextField()
     upload_time = models.DateTimeField(auto_now=True)
     likes = models.IntegerField(default=0)

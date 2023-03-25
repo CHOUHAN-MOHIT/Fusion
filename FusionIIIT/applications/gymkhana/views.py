@@ -24,6 +24,7 @@ from datetime import datetime
 from django.core import serializers
 import json
 from .models import *
+from .clubfeeds.models import Post
 from django.views.decorators.csrf import csrf_exempt, csrf_protect
 
 import logging
@@ -472,10 +473,6 @@ def new_club(request):
 	HttpResponse(content)
 	return redirect('/gymkhana/')
 
-
-def clubfeed(request):
-	return render(request , 'gymkhanaModule/clubfeeds/profile.html')
-
 @login_required()
 def form_avail(request):
 	"""
@@ -775,6 +772,7 @@ def gymkhana(request):
 	name = request.user.first_name +"_"+ request.user.last_name
 	designations = list(HoldsDesignation.objects.select_related('user','working','designation').all().filter(working = request.user).values_list('designation'))
 	designation_data = [element for designation in designations for element in designation]
+	posts = Post.objects.all()
 	roll_ = []
 	for designation in designation_data :
 		name_ = get_object_or_404(Designation, id = designation)
@@ -784,7 +782,10 @@ def gymkhana(request):
 		lines =str("")
 		Types = lines.split(" ")
 	club__ = coordinator_club(request)
-	return render(request, "gymkhanaModule/gymkhana.html", retrun_content(request, roll, name, roll_ , club__ ))
+
+	content = retrun_content(request, roll, name, roll_ , club__ )
+	content['posts'] = posts
+	return render(request, "gymkhanaModule/gymkhana.html", content)
 
 @login_required
 def club_membership(request):

@@ -1,4 +1,4 @@
-from django.shortcuts import render , HttpResponse
+from django.shortcuts import render , HttpResponse , get_object_or_404
 from .models import Post
 from applications.gymkhana.models import Club_info
 # Create your views here.
@@ -41,5 +41,11 @@ def addPost(request):
             return HttpResponse("<h1>image not saved</h1>")
 
     return HttpResponse("<h1>not saved</h1>")
+
+def like(request , post_id):
+    post = get_object_or_404(Post, id=post_id)
+    post.like(request.user)
+    return HttpResponse("Post liked!")
+
 
 

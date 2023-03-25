@@ -1,8 +1,10 @@
-from django.conf.urls import include, url
+
+from django.urls import path
 from . import views
 
 app_name = 'clubfeed'
 
 urlpatterns = [
-    url(r'^addPost/$', views.addPost , name='addPost'),
+    path('addPost/', views.addPost , name='addPost'),
+    path('like/<int:post_id>/', views.like, name='like'),
 ]

@@ -15,6 +15,13 @@ class Post(models.Model):
     description = models.TextField()
     upload_time = models.DateTimeField(auto_now=True)
     likes = models.IntegerField(default=0)
+    liked_by = models.ManyToManyField(User, related_name='liked_posts', blank=True)
+
+    def like(self, user):
+        if user not in self.liked_by.all():
+            self.like_count += 1
+            self.liked_by.add(user)
+            self.save()
 
 class Comment(models.Model):
     User = models.ForeignKey(User,on_delete=models.CASCADE)

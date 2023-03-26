@@ -1,12 +1,14 @@
-{% extends 'globals/base.html' %}
 {% load static %}
-{% block title %}Club Feeds{% endblock %}
 {% block css %}
   <link rel="stylesheet" href="{% static 'clubfeed/style/feedstyle.css' %}" />
 {% endblock css %}
 
-{% block body %}
-  <div class="content-grid">
+{% block clubfeed %}
+
+<div class="content-grid">
+    <div class="main-title">
+        CLUBFEEDS
+    </div>
     <div class="column-center">
       <div class="content-area">
         <div class="card">
@@ -14,13 +16,14 @@
           <form method="post" action="clubfeed/addPost/" enctype="multipart/form-data">
             {% csrf_token %}
             <div class="new-post-types">
-              <div class="post-type">
+              <div class="clubnames">
                 <select name="club" id="club" required>
                   <option value="">Choose Club</option>
                   {% for i in Club_name %}
                   <option value="{{i.club_name}}">{{i.club_name|title}}</option>
                   {% endfor %}
                 </select>
+                <label for="club" class="down-arrow"><i>^</i></label>
               </div>
               <div class="post-type">
                 <input type="file" accept="image/*" name="image" id="image" onchange="loadImage(event)"
@@ -64,10 +67,9 @@
             <div class="actions">
               <div class="action">
                 <span>{{post.likes}}</span>
-                <i class="like-icon"></i>
                 <form action="clubfeed/like/{{post.id}}/" method="post">
                   {% csrf_token %}
-                <input type="submit" value="Like">
+                  <button type="submit" style="all: unset; display: flex; align-items: center; cursor:pointer;"><i class="like-icon"></i>Like</button>
               </form>
               </div>
               <div class="action">
@@ -94,4 +96,4 @@
     </script>
 
   
-{% endblock body %}
+{% endblock clubfeed %}

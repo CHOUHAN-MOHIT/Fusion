@@ -1,13 +1,11 @@
-<!DOCTYPE html>
-<html lang="en">
-
+{% extends 'globals/base.html' %}
 {% load static %}
-
+{% block title %}Club Feeds{% endblock %}
 {% block css %}
   <link rel="stylesheet" href="{% static 'clubfeed/style/feedstyle.css' %}" />
-  {% endblock css %}
+{% endblock css %}
 
-<body>
+{% block body %}
   <div class="content-grid">
     <div class="column-center">
       <div class="content-area">
@@ -17,12 +15,20 @@
             {% csrf_token %}
             <div class="new-post-types">
               <div class="post-type">
+                <select name="club" id="club" required>
+                  <option value="">Choose Club</option>
+                  {% for i in Club_name %}
+                  <option value="{{i.club_name}}">{{i.club_name|title}}</option>
+                  {% endfor %}
+                </select>
+              </div>
+              <div class="post-type">
                 <input type="file" accept="image/*" name="image" id="image" onchange="loadImage(event)"
                   style="display: none;">
                 <label for="image"><i class="photo-video-icon"></i> Add Image</label>
               </div>
               <div class="post-type">
-                <input type="reel" accept="video/*" name="reel" id="reel" onchange="loadVideo(event)"
+                <input type="file" accept="video/*" name="reel" id="reel" onchange="loadVideo(event)"
                   style="display: none;">
                 <label for="reel" style="cursor: pointer;"><i class="live-video-icon"></i> Add Reel</label>
               </div>
@@ -38,7 +44,7 @@
         <div class="card post">
           <div class="post-header">
             <div class="post-author-info">
-              <img src="{% static 'clubfeed/images/page-thumb-1.png'%}" />
+              <img src="{{ post.club.club_file.url }}" />
               <div>
                 <div>
                   <span class="author-name">{{post.club | title}}</span>
@@ -86,6 +92,6 @@
         image.src = URL.createObjectURL(event.target.files[0]);
       };
     </script>
-</body>
 
-<!-- </html> -->
+  
+{% endblock body %}

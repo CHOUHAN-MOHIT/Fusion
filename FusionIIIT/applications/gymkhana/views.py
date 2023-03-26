@@ -771,7 +771,7 @@ def gymkhana(request):
 	name = request.user.first_name +"_"+ request.user.last_name
 	designations = list(HoldsDesignation.objects.select_related('user','working','designation').all().filter(working = request.user).values_list('designation'))
 	designation_data = [element for designation in designations for element in designation]
-	posts = Post.objects.all()
+	posts = Post.objects.all().order_by('-upload_time')
 	roll_ = []
 	for designation in designation_data :
 		try:

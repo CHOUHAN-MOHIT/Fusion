@@ -13,13 +13,13 @@ class Post(models.Model):
     filetype = models.CharField(max_length=32 , choices=fileTypeOption)
     file = models.FileField(upload_to="clubfeeds/")
     description = models.TextField()
-    upload_time = models.DateTimeField(auto_now=True)
+    upload_time = models.DateTimeField(auto_now_add=True)
     likes = models.IntegerField(default=0)
     liked_by = models.ManyToManyField(User, related_name='liked_posts', blank=True)
 
     def like(self, user):
         if user not in self.liked_by.all():
-            self.like_count += 1
+            self.likes += 1
             self.liked_by.add(user)
             self.save()
 

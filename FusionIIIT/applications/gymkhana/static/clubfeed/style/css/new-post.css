@@ -68,3 +68,25 @@
 #output{
   border: 2px solid black;
 }
+
+.post-type select{
+  all: unset;
+  padding: 8px 12px;
+  background-color: #d6d6d6;
+  border-radius: 100px;
+  color: black;
+  display: flex;
+  align-items: center;
+}
+
+.arrow {
+  border: solid black;
+  border-width: 0 3px 3px 0;
+  display: inline-block;
+  padding: 3px;
+}
+
+.down {
+  transform: rotate(45deg);
+  -webkit-transform: rotate(45deg);
+}

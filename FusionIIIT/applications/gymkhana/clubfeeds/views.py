@@ -1,7 +1,8 @@
-from django.shortcuts import render , HttpResponse , get_object_or_404
-from django.http import  HttpResponseRedirect
-from .models import Post
+from django.shortcuts import render , HttpResponse , get_object_or_404 ,redirect
+from django.http import  HttpResponseRedirect,JsonResponse
+from .models import Post , Comment
 from applications.gymkhana.models import Club_info
+from django.views.decorators.http import require_GET
 # Create your views here.
 def addPost(request):
     if request.method == 'POST':
@@ -48,4 +49,23 @@ def like(request , post_id):
     return HttpResponseRedirect('/gymkhana/')
 
 
+# def add_comment(request, post_id):
+#     post = get_object_or_404(Post, id=post_id)
+#     if request.method == 'POST':
+#         text = request.POST.get('text')
+#         comment = Comment(user=request.user, post=post, text=text)
+#         comment.save()
+#         return HttpResponseRedirect('/gymkhana/')
+    
 
+def add_comment(request, post_id):
+    post = get_object_or_404(Post, pk=post_id)
+    # comments = post.comments.order_by('-date')
+
+    if request.method == 'POST':
+        comment_content = request.POST['comment']
+        comment = Comment.objects.create(post=post,author = request.user ,text=comment_content)
+        comment.save()
+        return HttpResponseRedirect('/gymkhana/')
+
+    return HttpResponseRedirect('/gymkhana/')
